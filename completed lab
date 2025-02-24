@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST377 - Lab 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightblue;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid black;
+            background-color: white;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: purple;
+            color: white;
+        }
+        input, button {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-heading">INST377 - Lab 4</h1>
+        
+        <!-- Alert Me Section -->
+        <div class="section">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <button onclick="alertName()">Alert Me!</button>
+        </div>
+
+        <!-- Change Color Section -->
+        <div class="section">
+            <button onclick="changeColor()">Change Color</button>
+        </div>
+
+        <!-- Text Tester Section -->
+        <div class="section">
+            <label for="text">Text Tester:</label>
+            <input type="text" id="text">
+            <button onclick="validateText()">Validate Text</button>
+        </div>
+
+        <!-- Add Text Section -->
+        <div class="section">
+            <button onclick="addText()">Add Text</button>
+        </div>
+    </div>
+
+    <script>
+        function alertName() {
+            let name = document.getElementById("name").value;
+            if (name.trim() === "") {
+                alert("Please enter a name.");
+            } else {
+                alert("Hi " + name + "!");
+            }
+        }
+
+        function changeColor() {
+            let body = document.body;
+            if (body.style.backgroundColor === "lightblue") {
+                body.style.backgroundColor = "lightgreen";
+            } else {
+                body.style.backgroundColor = "lightblue";
+            }
+        }
+
+        function validateText() {
+            let text = document.getElementById("text").value;
+            let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("Invalid input: Special characters are not allowed.");
+            } else {
+                alert("Valid input!");
+            }
+        }
+
+        function addText() {
+            let heading = document.getElementById("main-heading");
+            heading.innerText += " - Add Text";
+        }
+    </script>
+</body>
+</html>
